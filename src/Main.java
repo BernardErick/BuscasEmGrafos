@@ -3,6 +3,11 @@ import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
+        exemploteorico();
+        //situacaofluxo();
+        //situacaoAtendimento();
+    }
+    public static void exemploteorico(){
         Graph graph = new Graph();
 
         Vertex u = new Vertex("u");
@@ -37,7 +42,69 @@ public class Main {
         System.out.println("<------------ Usando DFS ------------>");
         graph.DFS();
         System.out.println("Exibindo o vertice qualquer após o DFS:");
-        graph.getVertex("z").print();
+        graph.getVertex("v").print();
+    }
+    public static void situacaofluxo(){
+        Graph graph = new Graph();
+
+        Vertex recepcao = new Vertex("recepcao");
+        Vertex banheiro = new Vertex("banheiro");
+        Vertex consultorio1 = new Vertex("consultorio1");
+        Vertex salaCirurgia = new Vertex("salaCirurgia");
+        Vertex consultorio2 = new Vertex("consultorio2");
+        Vertex salaRepouso = new Vertex("salaRepouso");
+
+        graph.addVertex(recepcao);
+        graph.addVertex(banheiro);
+        graph.addVertex(consultorio1);
+        graph.addVertex(consultorio2);
+        graph.addVertex(salaCirurgia);
+        graph.addVertex(salaRepouso);
+
+        graph.addEdge(recepcao,consultorio1);
+        graph.addEdge(recepcao,consultorio2);
+        graph.addEdge(recepcao,banheiro);
+        graph.addEdge(banheiro,recepcao);
+        graph.addEdge(consultorio2,banheiro);
+        graph.addEdge(consultorio1,banheiro);
+        graph.addEdge(consultorio1,salaCirurgia);
+        graph.addEdge(salaCirurgia,salaRepouso);
+
+        System.out.println("Adjacentes da recepção");
+        graph.getVertex("recepcao").printNeighbors();
+        System.out.println("Usando DFS no hospital");
+        graph.DFS();
+    }
+    public static void situacaoAtendimento(){
+        Graph graph = new Graph();
+
+        Vertex avaliar = new Vertex("avaliar");
+        Vertex coriza = new Vertex("coriza");
+        Vertex colica = new Vertex("colica");
+        Vertex gripe = new Vertex("gripe");
+        Vertex covid = new Vertex("covid");
+        Vertex gravidez = new Vertex("gravidez");
+        Vertex gases = new Vertex("gases");
+
+        graph.addVertex(avaliar);
+        graph.addVertex(coriza);
+        graph.addVertex(colica);
+        graph.addVertex(gripe);
+        graph.addVertex(covid);
+        graph.addVertex(gravidez);
+        graph.addVertex(gases);
+
+        graph.addEdge(avaliar,coriza);
+        graph.addEdge(avaliar,colica);
+        graph.addEdge(coriza,gripe);
+        graph.addEdge(coriza,covid);
+        graph.addEdge(colica,gravidez);
+        graph.addEdge(colica,gases);
+
+        System.out.println("Perguntas para coriza");
+        graph.getVertex("coriza").printNeighbors();
+        System.out.println("Usando DFS no atendimento");
+        graph.DFS();
     }
 }
 
