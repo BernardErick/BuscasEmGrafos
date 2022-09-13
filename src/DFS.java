@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Main {
+public class DFS {
     public static void main(String[] args) {
         Graph graph = new Graph();
 
