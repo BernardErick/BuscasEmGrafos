@@ -6,7 +6,7 @@
 
 #### Implementação do dfs
 
-- Pseudocódigo do algoritmo BFS
+- Pseudocódigo do algoritmo DFS
 
 #### Pseudocódigo e implementação
 
@@ -59,3 +59,23 @@ o tempo de fechamento como sendo o tempo atual incrementado: `time + 1`.
 
 ![alt text](img/exemplo2.png)
 ![alt text](img/exemplo3.png)
+
+#### Implementação do BFS (Extra)
+
+- Pseudocódigo do algoritmo BFS
+
+#### Pseudocódigo e implementação
+![alt text](img/pseudocodebfs.png)
+
+#### Comportamento do algoritmo 
+- O algoritmo inicia com parâmetro o parametro de origem já sendo definido por `Color.GRAY`
+- Em seguida ele busca por todos os filhos que estejam brancos e os jogam na fila auxiliar
+- Ao serem jogados, eles mudam o atributo color para `Color.GRAY` e o pai muda para `Color.BLACK`
+- Em seguida é visto o primeiro elemento da fila, que é retirado, alterado a cor e buscado os filhos.
+- E reinicia o processo, até que a fila esteja vazia.
+- O algoritmo não se preocupa se todos os filhos forem olhados.
+
+#### Exemplo
+
+![alt text](img/exemplo4.png)
+![alt text](img/exemplo5.png)
